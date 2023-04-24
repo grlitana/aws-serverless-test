@@ -1,9 +1,10 @@
 import { returnResponse } from "./return";
+import { getWeather } from "./../services";
 
-export const myhandler = () => {
-  // this is my code, this is my destiny\
-
-  return returnResponse({});
+export const myhandler = async (event) => {
+  const payload = event;
+  const response = getWeather(payload);
+  return returnResponse(response);
 }
 
 export const handler = myhandler;
